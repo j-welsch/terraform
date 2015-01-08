@@ -20,7 +20,7 @@ type InitCommand struct {
 
 func (c *InitCommand) Run(args []string) int {
 	var remoteBackend, remoteAddress, remoteAccessToken, remoteName, remotePath string
-	args = c.Meta.process(args, false)
+	args = c.Meta.Process(args, false)
 	cmdFlags := flag.NewFlagSet("init", flag.ContinueOnError)
 	cmdFlags.StringVar(&remoteBackend, "backend", "atlas", "")
 	cmdFlags.StringVar(&remoteAddress, "address", "", "")

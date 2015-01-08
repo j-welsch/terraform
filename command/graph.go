@@ -18,7 +18,7 @@ type GraphCommand struct {
 func (c *GraphCommand) Run(args []string) int {
 	var moduleDepth int
 
-	args = c.Meta.process(args, false)
+	args = c.Meta.Process(args, false)
 
 	cmdFlags := flag.NewFlagSet("graph", flag.ContinueOnError)
 	cmdFlags.IntVar(&moduleDepth, "module-depth", 0, "module-depth")

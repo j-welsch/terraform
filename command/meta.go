@@ -363,12 +363,12 @@ func (m *Meta) moduleStorage(root string) module.Storage {
 	}
 }
 
-// process will process the meta-parameters out of the arguments. This
+// Process will process the meta-parameters out of the arguments. This
 // will potentially modify the args in-place. It will return the resulting
 // slice.
 //
 // vars says whether or not we support variables.
-func (m *Meta) process(args []string, vars bool) []string {
+func (m *Meta) Process(args []string, vars bool) []string {
 	// We do this so that we retain the ability to technically call
 	// process multiple times, even if we have no plans to do so
 	if m.oldUi != nil {
