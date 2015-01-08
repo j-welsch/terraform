@@ -26,7 +26,7 @@ type ApplyCommand struct {
 
 func (c *ApplyCommand) Run(args []string) int {
 	var destroyForce, refresh bool
-	args = c.Meta.process(args, true)
+	args = c.Meta.Process(args, true)
 
 	cmdName := "apply"
 	if c.Destroy {
@@ -200,7 +200,7 @@ func (c *ApplyCommand) Run(args []string) int {
 		return 1
 	}
 
-	c.Ui.Output(c.Colorize().Color(fmt.Sprintf(
+	c.Ui.Info(c.Colorize().Color(fmt.Sprintf(
 		"[reset][bold][green]\n"+
 			"Apply complete! Resources: %d added, %d changed, %d destroyed.",
 		countHook.Added,
