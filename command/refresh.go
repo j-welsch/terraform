@@ -16,7 +16,7 @@ type RefreshCommand struct {
 }
 
 func (c *RefreshCommand) Run(args []string) int {
-	args = c.Meta.process(args, true)
+	args = c.Meta.Process(args, true)
 
 	cmdFlags := c.Meta.flagSet("refresh")
 	cmdFlags.StringVar(&c.Meta.statePath, "state", DefaultStateFilename, "path")
@@ -30,7 +30,7 @@ func (c *RefreshCommand) Run(args []string) int {
 	var configPath string
 	args = cmdFlags.Args()
 	if len(args) > 1 {
-		c.Ui.Error("The apply command expects at most one argument.")
+		c.Ui.Error("The refresh command expects at most one argument.")
 		cmdFlags.Usage()
 		return 1
 	} else if len(args) == 1 {

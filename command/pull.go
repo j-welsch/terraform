@@ -13,7 +13,7 @@ type PullCommand struct {
 }
 
 func (c *PullCommand) Run(args []string) int {
-	args = c.Meta.process(args, false)
+	args = c.Meta.Process(args, false)
 	cmdFlags := flag.NewFlagSet("pull", flag.ContinueOnError)
 	cmdFlags.Usage = func() { c.Ui.Error(c.Help()) }
 	if err := cmdFlags.Parse(args); err != nil {

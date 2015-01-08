@@ -31,7 +31,7 @@ type RemoteCommand struct {
 }
 
 func (c *RemoteCommand) Run(args []string) int {
-	args = c.Meta.process(args, false)
+	args = c.Meta.Process(args, false)
 	var address, accessToken, name, path string
 	cmdFlags := flag.NewFlagSet("remote", flag.ContinueOnError)
 	cmdFlags.BoolVar(&c.conf.disableRemote, "disable", false, "")

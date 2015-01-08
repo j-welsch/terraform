@@ -18,7 +18,7 @@ type GetCommand struct {
 func (c *GetCommand) Run(args []string) int {
 	var update bool
 
-	args = c.Meta.process(args, false)
+	args = c.Meta.Process(args, false)
 
 	cmdFlags := flag.NewFlagSet("get", flag.ContinueOnError)
 	cmdFlags.BoolVar(&update, "update", false, "update")

@@ -14,7 +14,7 @@ type PushCommand struct {
 
 func (c *PushCommand) Run(args []string) int {
 	var force bool
-	args = c.Meta.process(args, false)
+	args = c.Meta.Process(args, false)
 	cmdFlags := flag.NewFlagSet("push", flag.ContinueOnError)
 	cmdFlags.BoolVar(&force, "force", false, "")
 	cmdFlags.Usage = func() { c.Ui.Error(c.Help()) }
