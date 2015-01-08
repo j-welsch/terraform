@@ -20,7 +20,7 @@ func (c *PlanCommand) Run(args []string) int {
 	var outPath string
 	var moduleDepth int
 
-	args = c.Meta.process(args, true)
+	args = c.Meta.Process(args, true)
 
 	cmdFlags := c.Meta.flagSet("plan")
 	cmdFlags.BoolVar(&destroy, "destroy", false, "destroy")
@@ -122,7 +122,7 @@ func (c *PlanCommand) Run(args []string) int {
 			outPath))
 	}
 
-	c.Ui.Output(FormatPlan(&FormatPlanOpts{
+	c.Ui.Info(FormatPlan(&FormatPlanOpts{
 		Plan:        plan,
 		Color:       c.Colorize(),
 		ModuleDepth: moduleDepth,

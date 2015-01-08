@@ -4,6 +4,7 @@ import (
 	"os"
 	"os/signal"
 
+	"github.com/hashicorp/terraform/api"
 	"github.com/hashicorp/terraform/command"
 	"github.com/mitchellh/cli"
 )
@@ -33,6 +34,12 @@ func init() {
 	}
 
 	Commands = map[string]cli.CommandFactory{
+		"api": func() (cli.Command, error) {
+			return &api.ApiCommand{
+				Meta:             meta,
+				ShutdownServerCh: makeShutdownCh(),
+			}, nil
+		},
 		"apply": func() (cli.Command, error) {
 			return &command.ApplyCommand{
 				Meta:       meta,
