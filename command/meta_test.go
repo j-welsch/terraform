@@ -20,7 +20,7 @@ func TestMetaColorize(t *testing.T) {
 	m.Color = true
 	args = []string{"foo", "bar"}
 	args2 = []string{"foo", "bar"}
-	args = m.process(args, false)
+	args = m.Process(args, false)
 	if !reflect.DeepEqual(args, args2) {
 		t.Fatalf("bad: %#v", args)
 	}
@@ -32,7 +32,7 @@ func TestMetaColorize(t *testing.T) {
 	m = new(Meta)
 	args = []string{"foo", "bar"}
 	args2 = []string{"foo", "bar"}
-	args = m.process(args, false)
+	args = m.Process(args, false)
 	if !reflect.DeepEqual(args, args2) {
 		t.Fatalf("bad: %#v", args)
 	}
@@ -45,7 +45,7 @@ func TestMetaColorize(t *testing.T) {
 	m.Color = true
 	args = []string{"foo", "-no-color", "bar"}
 	args2 = []string{"foo", "bar"}
-	args = m.process(args, false)
+	args = m.Process(args, false)
 	if !reflect.DeepEqual(args, args2) {
 		t.Fatalf("bad: %#v", args)
 	}
@@ -117,7 +117,7 @@ func TestMetaInputMode_defaultVars(t *testing.T) {
 
 	m := new(Meta)
 	args := []string{}
-	args = m.process(args, true)
+	args = m.Process(args, true)
 
 	fs := m.flagSet("foo")
 	if err := fs.Parse(args); err != nil {
